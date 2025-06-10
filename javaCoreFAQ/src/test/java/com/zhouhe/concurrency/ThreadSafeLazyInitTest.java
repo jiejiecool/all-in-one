@@ -8,11 +8,14 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
 
 public class ThreadSafeLazyInitTest {
+    int count = 1000;
+
     @Test
     public void testConcurrentInit() throws InterruptedException {
-        ExecutorService executorService = Executors.newFixedThreadPool(100);
-        CountDownLatch countDownLatch = new CountDownLatch(100);
-        for (int i = 0; i < 100; i++) {
+
+        ExecutorService executorService = Executors.newFixedThreadPool(count);
+        CountDownLatch countDownLatch = new CountDownLatch(count);
+        for (int i = 0; i < count; i++) {
             executorService.execute(() -> {
                 MyDataSource instance = ThreadSafeLazyInit.getInstance();
                 countDownLatch.countDown();
@@ -27,9 +30,9 @@ public class ThreadSafeLazyInitTest {
 
     @Test
     public void testConcurrentUnsafeInit() throws InterruptedException {
-        ExecutorService executorService = Executors.newFixedThreadPool(100);
-        CountDownLatch countDownLatch = new CountDownLatch(100);
-        for (int i = 0; i < 100; i++) {
+        ExecutorService executorService = Executors.newFixedThreadPool(count);
+        CountDownLatch countDownLatch = new CountDownLatch(count);
+        for (int i = 0; i < count; i++) {
             executorService.execute(() -> {
                 MyDataSource instance = UnThreadSafeInit.getInstance();
                 countDownLatch.countDown();
