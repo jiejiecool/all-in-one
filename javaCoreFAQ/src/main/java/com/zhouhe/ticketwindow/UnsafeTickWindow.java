@@ -7,31 +7,34 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class UnsafeTickWindow implements Runnable{
-    private static int MAX_NUM = 500;
-    private static int index = 1;
-
+    private int index = 1;
+    private final static int MAX = 500;
+    private final static Object MUTEX = new Object();
     @Override
-    public void run() {
-        while (index <= MAX_NUM) {
-            log.info("current index:{}",index++);
+    public void run()
+    {
+        synchronized (MUTEX)
+        {
+            while (index <= MAX)
+            {
+                System.out.println(Thread.currentThread() + " 的号码是:" + (index++));
+            }
         }
     }
-
     public static void main(String[] args) throws InterruptedException {
-        Thread thread = new Thread(new UnsafeTickWindow());
-        Thread thread1 = new Thread(new UnsafeTickWindow());
-        Thread thread2 = new Thread(new UnsafeTickWindow());
-        Thread thread3 = new Thread(new UnsafeTickWindow());
-
-        thread.start();
-        thread1.start();
-        thread2.start();
-        thread3.start();
-
-        thread.join();
-        thread1.join();
-        thread2.join();
-        thread3.join();
-
+        final UnsafeTickWindow task = new
+                UnsafeTickWindow();
+        Thread windowThread1 = new Thread(task, "一号窗口");
+        Thread windowThread2 = new Thread(task, "二号窗口");
+        Thread windowThread3 = new Thread(task, "三号窗口");
+        Thread windowThread4 = new Thread(task, "四号窗口");
+        windowThread1.start();
+        windowThread2.start();
+        windowThread3.start();
+        windowThread4.start();
+        windowThread1.join();
+        windowThread2.join();
+        windowThread3.join();
+        windowThread4.join();
     }
 }
