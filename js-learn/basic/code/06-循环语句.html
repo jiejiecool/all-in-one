@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            // for in 是迭代所有的属性
+            let a = {
+                name:"zj",
+                age:33,
+                height:178
+            }
+
+            for (prop in a) {
+                console.log(prop+":"+a[prop])
+            }
+
+            let arr = [1,2,3]
+            for (prop in arr){
+                console.log(`index:${prop}-value:${arr[prop]}`)
+            }
+
+            for(prop of [1,2,3]) {
+                console.log(`${prop}`)
+            }
+
+            //console.log(a.hasOwnProperty("name"))
+            console.log(a.hasOwnProperty("aa"))
+        </script>
+    </body>
+</html>
