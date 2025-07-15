@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+         //为什么要进行类型转换？比如以下的例子：
+         console.log('1000'+'20'); //100020，不是我们想要的结果
+         console.log('1000'+Number(20)); //+只要有一边是字符串，那么结果就是字符串相加
+         console.log(Number('1000')+Number('20')); //显式类型转换
+         
+        </script>
+    </body>
+</html>
