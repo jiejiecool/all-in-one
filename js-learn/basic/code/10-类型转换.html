@@ -10,6 +10,35 @@
          console.log('1000'+Number(20)); //+只要有一边是字符串，那么结果就是字符串相加
          console.log(Number('1000')+Number('20')); //显式类型转换
          
+
+         //
+         let x = "";
+
+         console.log(Boolean(x));
+
+         x = " ";
+         console.log(Boolean(x));
+
+         let a;
+        console.log(Boolean(a=1));
+        console.log(Boolean(a=-1));
+        console.log(a);
+        console.log(Boolean(a));
+
+        a = "123";
+        console.log(Boolean(a));
+
+        a= "";
+        console.log(Boolean(a));
+
+        //两个不同类型的变量比较，是先转换为数字，再比较
+        let b = 0;
+        let c = "0";
+        console.log(b == c);
+        console.log(b === c);
+        
+        console.log(Boolean(b) == Boolean(c));
+        
         </script>
     </body>
 </html>

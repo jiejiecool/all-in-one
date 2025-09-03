@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+        
+        //1. 函数的参数 是复制了一份值
+
+        function test1(from, to) {
+            from = "*"+from+"*";
+            console.log(`${from}:   ${to}`);
+        }
+
+        let from = 'zhoujie';
+        let to = 'hehongjuan';
+
+        test1(from, to);
+
+
+
+        //测试下对象会怎么样
+        function test2(person1, person2) {
+            person1.name = "*"+person1.name+"*";
+            //person1.name = 
+            console.log(`${person1.name}:   ${person2.name}`);
+        }
+
+        let person1 = {name:"zhoujie"};
+        let person2 = {name:"hehongjuan"};
+        test2(person1, person2);
+
+        console.log(person1.name);
+
+        //默认值
+
+        function test3(from, to="hahah") {
+            from = "*"+from+"*";
+            console.log(`${from}:   ${to}`);
+        }
+
+        test3("zhoujie");
+
+        </script>
+    </body>
+</html>

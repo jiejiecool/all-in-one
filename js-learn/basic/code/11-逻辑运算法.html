@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+        //与     或     非
+        //&&     ||    !
+
+
+        // 或运算符的附加特性   会返回第一个真值
+        let first = "";
+        let second = " ";
+        let third = "hahah";
+        
+        console.log( first || second || third);
+
+
+        second = "";
+        console.log( first || second || third);
+
+        // 或运算符的附加特性  短路运算
+
+        1 || console.log(1111);
+        0 || console.log(2222);
+
+
+        //1.写一个 if 条件句来检查 age 是否位于 14 到 90 的闭区间。
+
+       // if( age >= 14 && age <= 90)
+
+       //写一个 if 条件句，检查 age 是否不位于 14 到 90 的闭区间。
+
+        //创建两个表达式：第一个用非运算 !，第二个不用。
+
+        //if (!(age >= 14 && age <= 90))
+
+        //if (age <14 || age > 90)
+            console.log('xxxxxxxxxx');
+
+            console.log(-1 && 2); //遇到假值就返回假值，否则返回最后一个值
+        
+
+        </script>
+    </body>
+</html>
