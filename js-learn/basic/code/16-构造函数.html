@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            
+            function Accumulator() {
+                this.val = 0;
+
+                this.read = function() {
+                    this.val +=+prompt("value") || 0; 
+                }
+
+                this.print = function() {
+                    alert(this.val);
+                }
+            }
+
+
+            let acc = new Accumulator();
+
+
+            acc.read();
+            acc.read();
+            acc.read();
+
+            acc.print();
+
+
+        </script>
+    </body>
+</html>

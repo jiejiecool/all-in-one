@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            
+            let obj = {}
+            //构造器函数
+            function A() {
+                return obj;
+            }
+
+            function B() {
+                return obj;
+            }
+
+            let a = new A;
+            let b = new B;
+          //  alert(a == b);
+      
+
+          //创造一个计算器
+
+          let Calc = function() {
+                this.read = function() {
+                    let val = prompt("input values");
+                    let arr = val.split(",");
+                    this.a = +arr[0];
+                    this.b = +arr[1];
+                };
+
+                this.sum = function() {
+                    return this.a+this.b;
+                };
+
+                this.mul = function() {
+                    return this.a * this.b;
+                }
+          }
+
+          let calc = new Calc();
+          calc.read();
+          console.log(calc.sum());
+          console.log(calc.mul());
+
+
+        </script>
+    </body>
+</html>
